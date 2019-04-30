@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+         <!-- Plugin CSS -->
+    <link href="/static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="/static/css/creative.min.css" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+
+        <link href="/static/css/login.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+	<div class="container">
+        <% include ./header %>
+   </div>
+
+    <div class="wrapper">
+		    <form class="form-signin" method="POST" action="admin/login">       
+		      <h2 class="form-signin-heading">Please login</h2>
+		      <input type="text" class="form-control" name="email" placeholder="Email Address" autofocus=""/>
+		      <input type="password" class="form-control" name="password" placeholder="Password" />      
+		      <label class="checkbox">
+		        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+		      </label><br>
+		      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+		    </form>
+	</div>
+
+    <div class="container">
+        <% include ./footer %>
+   </div>
+
+</body>
+</html>
+
+
+

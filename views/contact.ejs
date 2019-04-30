@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Bootstrap Core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+         <!-- Plugin CSS -->
+    <link href="/static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="/static/css/creative.min.css" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
+
+    <link href="/static/css/login.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+    <div class="container">
+        <% include ./header %>
+   </div>
+
+
+    <div class="wrapper">
+            <form class="form-signin" style="max-width: 800px" action="/users/registration" method="POST">       
+              <h2 class="form-signin-heading">Inscription gratuite</h2>
+              <input type="text" class="form-control" name="firstName" placeholder="Prénom"  autofocus="" autocomplete="off"/>
+              <input type="text" class="form-control" name="lastName" placeholder="Nom"  autofocus="" autocomplete="off"/>
+              <input type="text" class="form-control" name="fatherName" placeholder="Nom complet du père"  autofocus="" autocomplete="off"/>
+              <input type="text" class="form-control" name="fatherProfession" placeholder="Profession"  autofocus="" autocomplete="off" />
+              <input type="text" class="form-control" name="motherName" placeholder="Nom complet de la mère"  autofocus="" autocomplete="off"/>
+              <input type="text" class="form-control" name="motherProfession" placeholder="Profession"  autofocus="" autocomplete="off"/>
+              <input type="text" class="form-control" name="email" placeholder="email"  autofocus="" autocomplete="off"/>
+              <input type="text" class="form-control" name="tel" placeholder="tel"  autofocus="" autocomplete="off" />
+              <div class="container">
+                  Classe
+                  <select  name="grade">
+                      <option value=""> selectionner une classe </option>
+                      <option value="day_care">Day Care</option>
+                      <option value="petite_section">Petite section</option>
+                      <option value="moyenne_section">moyenne section</option>
+                      <option value="audi">Sil</option>
+                      <option value="audi">CP</option>
+                      <option value="CE1">CE1</option>
+                      <option value="CE2">CE2</option>
+                      <option value="CM1">CM2</option>
+                      <option value="CM2">CM2</option>
+                  </select>
+              </div>
+              <input type="date" class="form-control" name="dateOfBirth"  autofocus="" autocomplete="off" />
+              <input type="text" class="form-control" name="address" placeholder="quartier de residence"  autofocus="" autocomplete="off" />
+              <input type="text" class="form-control" name="city" placeholder="ville de residence"  autofocus="" autocomplete="off" /><br>
+              
+              <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Soumettre</button>   
+            </form>
+      </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/static/public/js/main.js"></script>
+
+    <div class="container">
+        <% include ./footer %>
+   </div>
+
+
+</body>
+</html>
