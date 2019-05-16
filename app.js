@@ -91,7 +91,7 @@ app.get('/exit', (req, res) => {
 });
 
 
-
-app.listen(3000, () => {
+var portNumber = process.env.PORT || 3000;
+app.listen(portNumber, () => {
  	console.log('server started on port 3000');
  });
