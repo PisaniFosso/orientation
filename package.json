@@ -4,7 +4,7 @@
   "description": "arbre de connaissance",
   "main": "app.js",
   "scripts": {
-    "start": "node app"
+    "start": "npm install && node app"
   },
   "author": "CMR_CIA",
   "license": "ISC",
