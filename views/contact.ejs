@@ -22,7 +22,7 @@
     <link href="/static/css/login.css" rel="stylesheet">
 </head>
 
-<body id="page-top">
+<body name="page-top">
 
     <div class="container">
         <% include ./header %>
@@ -30,36 +30,109 @@
 
 
     <div class="wrapper">
-            <form class="form-signin" style="max-width: 800px" action="/users/registration" method="POST">       
-              <h2 class="form-signin-heading">Inscription gratuite</h2>
-              <input type="text" class="form-control" name="firstName" placeholder="Prénom"  autofocus="" autocomplete="off"/>
-              <input type="text" class="form-control" name="lastName" placeholder="Nom"  autofocus="" autocomplete="off"/>
-              <input type="text" class="form-control" name="fatherName" placeholder="Nom complet du père"  autofocus="" autocomplete="off"/>
-              <input type="text" class="form-control" name="fatherProfession" placeholder="Profession"  autofocus="" autocomplete="off" />
-              <input type="text" class="form-control" name="motherName" placeholder="Nom complet de la mère"  autofocus="" autocomplete="off"/>
-              <input type="text" class="form-control" name="motherProfession" placeholder="Profession"  autofocus="" autocomplete="off"/>
-              <input type="text" class="form-control" name="email" placeholder="email"  autofocus="" autocomplete="off"/>
-              <input type="text" class="form-control" name="tel" placeholder="tel"  autofocus="" autocomplete="off" />
-              <div class="container">
-                  Classe
-                  <select  name="grade">
-                      <option value=""> selectionner une classe </option>
-                      <option value="day_care">Day Care</option>
-                      <option value="petite_section">Petite section</option>
-                      <option value="moyenne_section">moyenne section</option>
-                      <option value="audi">Sil</option>
-                      <option value="audi">CP</option>
-                      <option value="CE1">CE1</option>
-                      <option value="CE2">CE2</option>
-                      <option value="CM1">CM2</option>
-                      <option value="CM2">CM2</option>
-                  </select>
-              </div>
-              <input type="date" class="form-control" name="dateOfBirth"  autofocus="" autocomplete="off" />
-              <input type="text" class="form-control" name="address" placeholder="quartier de residence"  autofocus="" autocomplete="off" />
-              <input type="text" class="form-control" name="city" placeholder="ville de residence"  autofocus="" autocomplete="off" /><br>
-              
-              <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Soumettre</button>   
+            <form class="form-signin" style="max-width: 800px" action="/users/registration" method="POST">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Prénom*</label>
+                            <input type="text"  class="form-control" name="inputFirstName" placeholder="Prénom">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Nom*</label>
+                            <input type="text"  class="form-control" name="inputLastName" placeholder="Nom">
+                        </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email*</label>
+                        <input type="email"  class="form-control" name="inputEmail" placeholder="Email">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Confirmez l'email*</label>
+                        <input type="email"  class="form-control" name="inputConfirmEmail" placeholder="Confirmez l'email">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="telephone">Téléphone*</label>
+                        <input type="text"  class="form-control" name="inputTel" placeholder="012-345-6789">
+                      </div>
+                      <div class="form-group col-md-6">
+                                  <label for="inputDegree">Dernier diplome*</label>
+                                  <select name="inputDegree" class="form-control">
+                                  <option value="" selected>Choose...</option>
+                                  <option value="Des">Diplôme d'Étude secondaire</option>
+                                  <option value="Bacc">Baccalauréat</option>
+                                  <option value="M">Maitrise/Master</option>
+                                  <option value="Phd">Doctorat</option>
+                                  <option value="N/A">Autre</option>
+                                </select>
+                        </div>
+                      <div class="form-group col-md-6">
+                                    <label for="inputGenre">Genre*</label>
+                                    <select name="inputGenre" class="form-control">
+                                    <option value="" selected>Choose...</option>
+                                    <option value="mas">Masculin</option>
+                                    <option value="fem">Féminin</option>
+                                    <option value="N/A">Autre</option>
+                              </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                                <label for="Birth">Date de naissance*</label>
+                                <input type="date"  class="form-control" name="inputBirthDate">
+                            </div>
+                        <div class="form-group col-md-6">
+                                <script type= "text/javascript" src = "/static/js/countries.js"></script>
+                                <label for="nationality">Pays de nationalité*</label>
+                                <select id="inputCountry" name="inputCountry"></select>
+                            </div>
+                            <script language="javascript">
+                                populateCountries("inputCountry"); // first parameter is id of country drop-down and second parameter is id of state drop-down
+                            </script>
+
+                        <div class="form-group col-md-6">
+                                <label for="inputLanguage">Langue*</label>
+                                <select name="inputLanguage" class="form-control">
+                                <option value="" selected>Choose...</option>
+                                <option value="Fran">Français</option>
+                                <option value="Ang">Anglais</option>
+                                <option value="Autre">Autre</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress">Addresse*</label>
+                      <input type="text"  class="form-control" name="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress2">Addresse 2</label>
+                      <input type="text" class="form-control" name="inputAddress2" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">Ville*</label>
+                        <input type="text"  class="form-control" name="inputCity">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputProvince">Province*</label>
+                        <select name="inputProvince" class="form-control">
+                          <option value="" selected>Choose...</option>
+                          <option value="AB">AB</option>
+                          <option value="BC">BC</option>
+                          <option value="P-E-I">P-E-I</option>
+                          <option value="MB">MB</option>
+                          <option value="NB">NB</option>
+                          <option value="NS">NS</option>
+                          <option value="ON">ON</option>
+                          <option value="QC">QC</option>
+                          <option value="SK">SK</option>
+                          <option value="T-N-L">T-N-L</option>
+                          <option value="NU">NU</option>
+                          <option value="TN">TN</option>
+                          <option value="YT">YT</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="inputZip">code postal*</label>
+                        <input type="text" class="form-control" name="inputZip">
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">m'inscrire</button>
             </form>
       </div>
 
@@ -69,6 +142,7 @@
     <div class="container">
         <% include ./footer %>
    </div>
+
 
 
 </body>

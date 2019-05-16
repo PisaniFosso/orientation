@@ -20,7 +20,9 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a href="/"><img src="/static/img/logo.png"  width="200" height="100"></a>
+                <a href="/"><img src="/static/img/logo.png"  width="60" height="50" ><br>
+                    
+                    </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,19 +30,19 @@
                 <ul class="nav navbar-nav navbar-right">
                     <%if (!user) { %>
                     <li>
-                        <a class="page-scroll" href="/">A propos</a>
+                        <a class="page-scroll" href="/">Accueil</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/users/future_students">future élève</a>
+                        <a class="page-scroll" href="/users/new_patient">Inscription</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/users/parent">parent</a>
+                        <a class="page-scroll" href="/users/patient">Se connecter</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a class="page-scroll" href="/users/profs">professeur</a>
-                    </li>
+                    </li> -->
                     <li>
-                        <a class="page-scroll" href="/users/admin">Administration</a>
+                        <a class="page-scroll" href="#nous">A propos</a>
                     </li>
                     <% } %>
                     <%if (user) { %>

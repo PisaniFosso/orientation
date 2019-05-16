@@ -1,0 +1,222 @@
+<?php
+   ob_start();
+   session_start();
+?>
+<html>
+  <head>
+    <title>Inscription</title>
+
+  </head>
+  <body id="page-top">
+    <div class="container">
+        <% include ./header %>
+   </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Accueil</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+		  <div class="btn-group">
+            <button type="button" class="btn btn-success">FR</button>
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="#">EN</a></li>
+            </ul>
+          </div>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+      <h3>Inscription du Conseiller</h3>
+      <h3>&nbsp;</h3>
+      </div>
+
+    <form class="form-horizontal" role="form" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+
+      <div class="form-group">
+        <label for="Nom" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Nom
+        </label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="text" class="form-control" name="nom" placeholder="Nom"
+		  required oninvalid="this.setCustomValidity('Veuillez entrer le nom')"
+                 oninput="setCustomValidity('')"/>
+        </div>
+      </div>
+	  <div class="form-group">
+        <label for="Prenom" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Pr&eacute;nom
+        </label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="text" class="form-control" name="prenom" placeholder="Prenom"
+		  required oninvalid="this.setCustomValidity('Veuillez entrer le prenom')
+		   oninput="setCustomValidity('')""/>
+        </div>
+      </div>
+	  <div class="form-group">
+        <label for="Courriel" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Courriel
+        </label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="email" class="form-control" name="rcourriel" placeholder="Courriel"
+		  required oninvalid="this.setCustomValidity('Veuillez entrer le courriel')"
+                 oninput="setCustomValidity('')"/>
+        </div>
+		 <div class="form-group">
+        <label for="Courriel" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Re-entrez votre courriel
+        </label>
+		 <?php
+            $dete;
+            if ($_POST['courriel'] != $_POST['rcourriel']) 
+               {
+				
+                  echo 'Les deux courriels ne sont pas identiques, veuillez réessayer';
+				  $dete = 1;
+                }
+         ?>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="email" class="form-control" name="courriel" placeholder="entrez de nouveau votre courriel"
+		  required oninvalid="this.setCustomValidity('Veuillez entrer le courriel')"
+                 oninput="setCustomValidity('')"/>
+        </div>
+      </div>
+	  <div class="form-group">
+        <label for="Mot de passe" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Mot de Passe
+        </label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="password" class="form-control" name="password" placeholder="Mot de passe"
+		  required oninvalid="this.setCustomValidity('Veuillez entrer un mot de passe')"
+                 oninput="setCustomValidity('')"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Mot de passe_2" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Re-entrez le mot de passe
+        </label>
+		 <?php
+		   $det;
+            
+            if ($_POST['paasword'] != $_POST['rpassword']) 
+               {
+				
+                  echo 'Les deux mot de passe ne sont pas identiques, veuillez réessayer';
+				  $det = 1;
+               }
+         ?>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="password" class="form-control" name="rpassword"  placeholder="Re-entrez le mot de passe"
+		  required oninvalid="this.setCustomValidity('re-entrer le mot de passe')"
+                 oninput="setCustomValidity('')"/>
+        </div>
+      </div>  
+      <div class="form-group">
+        <label for="Genre"
+               class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Genre</label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+	  <select class="form-control" name="genre">
+            <option value="none" disabled>---</option>
+            <option value="mas">Autre</option>
+            <option value="fem">F&eacute;minin</option>
+            <option value="autr">Masculin</option>
+	  </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Diplome" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Diplome
+        </label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="text" class="form-control" name="diplome" placeholder="Diplome"
+		  required oninvalid="this.setCustomValidity('Veuillez entrer le diplome')"
+                 oninput="setCustomValidity('')"/>
+        </div>
+      </div>
+      <<div class="form-group">
+        <label for="LieuG" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Lieu de graduation
+        </label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="text" class="form-control" name="LieuG" placeholder="Lieu de graduation"
+		  required oninvalid="this.setCustomValidity('Veuillez entrer le lieu de graduation')"
+                 oninput="setCustomValidity('')"/>
+        </div>
+      </div>
+	  <div class="form-group">
+          <label for="DateG" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Date de graduation
+		  </label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="Date" class="form-control" name="dateg"
+		  required oninvalid="this.setCustomValidity('Veuillez entrer la date de graduation')"
+                 oninput="setCustomValidity('')"/>
+        </div>
+      </div>
+	  <div class="form-group">
+        <label for="Emploi" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Emploi
+        </label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="text" class="form-control" name="emploi" placeholder="Emploi"
+		  required oninvalid="this.setCustomValidity('Veuillez entrer votre emploi')"
+                 oninput="setCustomValidity('')"/>
+        </div>
+      </div>
+	  <div class="form-group">
+        <label for="DateD" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Date de d&eacute;but de l'emploi
+        </label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="Date" class="form-control" name="dated"
+		  required oninvalid="this.setCustomValidity('Veuillez entrer la date de debut')"
+                 oninput="setCustomValidity('')"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="DateF" class="col-xs-10 col-xs-offset-1 col-sm-2 control-label">
+          Date de fin de l'emploi
+        </label>
+        <div class="col-xs-6 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-lg-3">
+          <input type="Date" class="form-control" name="datef"/>
+        </div>
+      </div>
+	  
+	   <div class="form-group">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+	  <button type="submit" class="btn btn-success">Envoyer</button>
+        </div>
+      </div>
+    </form>
+    
+	<?php
+		   $det;
+            
+            if ($det == $dete) 
+               {
+				header("location: inscriptionr.php");
+               }
+         ?>
+	
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

@@ -8,13 +8,13 @@ const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
 
+
 const expressValidator = require('express-validator');
 
 const app = express();
 app.set('view engine', 'ejs');
 
 app.use('/static', express.static('views'));
-
 
 mongoose.connect(config.database);
 let db = mongoose.connection;

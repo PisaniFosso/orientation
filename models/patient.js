@@ -1,28 +1,12 @@
-const mongoose = require('mongoose');
+const mysql = require('mysql');
 
 //user Schema
-const studentSchema = mongoose.Schema({
+const patientSchema = mysql.Schema({
 	firstName:{
 		type: String,
 		required: true
 	},
 	lastName:{
-		type: String,
-		required: true
-	},
-	fatherName:{
-		type: String,
-		required: true
-	},
-	fatherProfession:{
-		type: String,
-		required: true
-	},
-	motherName:{
-		type: String,
-		required: true
-	},
-	motherProfession:{
 		type: String,
 		required: true
 	},
@@ -34,11 +18,23 @@ const studentSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	grade:{
+	degree:{
+		type: String,
+		required: true
+	},
+	gender:{
 		type: String,
 		required: true
 	},
 	dateOfBirth:{
+		type: Date,
+		required: true
+	},
+	nationaly:{
+		type: String,
+		required: true
+	},
+	langue:{
 		type: String,
 		required: true
 	},
@@ -46,18 +42,25 @@ const studentSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
+	address2:{
+		type: String,
+	},
 	city:{
 		type: String,
 		required: true
 	},
-	password:{
+	province:{
 		type: String,
 		required: true
 	},
-	inscriptionDate:{
+	postalCode:{
+		type: String,
+		required: true
+	},
+	InscriptionDate:{
 		type: Date,
 		required: true
 	}
 });
 
-const User = module.exports = mongoose.model('student', studentSchema);
+const User = module.exports = mysql.model('patient', patientSchema);
