@@ -7,16 +7,18 @@ var passwordHash = require('password-hash');
 const mysql = require('mysql');
 var connection = mysql.createConnection({
     //properties...
-    host: 'localhost',
-    user: 'arnaud',
-    password: 'Nomb1720',
-    database: 'db_arnaud'
+    host: 'us-cdbr-iron-east-02.cleardb.net',
+    user: 'bee1d7c09dd215',
+    password: '650f4fac',
+    database: 'heroku_6c524e3bb34e4a1',
+    port:3306,
+
 });
 
 //connection mysql DB
 connection.connect((error)=>{
     if(error){
-        console.log('error');
+        console.log('error:', error.code);
     }
     else{
         console.log('connected');
