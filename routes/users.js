@@ -19,9 +19,9 @@ const mysql = require('mysql');
 var connection = mysql.createConnection({
   //properties...
   host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'orientation',
+  user: 'arnaud',
+  password: 'Nomb1720',
+  database: 'db_arnaud',
 });
 
 //connection mysql DB
@@ -142,24 +142,24 @@ router.post('/registration', function (req, res){
   let now = new Date();
   now = dateformat(now, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
   let newPatient = {
-    firstName:inputFirstName,
-    lastName:inputLastName,
+    first_name:inputFirstName,
+    last_name:inputLastName,
     password:hashedPassword,
     email:inputEmail,
     tel:inputTel,
     degree:inputDegree,
     genre:inputGenre,
-    naissance:inputBirthDate,
+    birth_date:inputBirthDate,
     langue:inputLanguage,
     address:inputAddress,
     address2:inputAddress2,
     ville:inputCity,
     province:inputProvince,
-    codePostal:inputZip,
-    inscriptionDate:now,
-    confirm:0
+    code_postal:inputZip,
+    inscription_date:now,
+    nationalite:inputCountry
   };
-  connection.query('INSERT INTO patients SET ?', newPatient, (err, res) => {
+  connection.query('INSERT INTO Usager SET ?', newPatient, (err, res) => {
     if(err) throw err;
     console.log('Last insert ID:', res.insertId);
   });
