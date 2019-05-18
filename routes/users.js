@@ -3,16 +3,25 @@ const router = express.Router();
 const passport = require('passport');
 const path = require('path');
 var passwordHash = require('password-hash');
+const dateformat = require('dateformat');
 
 const mysql = require('mysql');
-var connection = mysql.createConnection({
-    //properties...
-    host: 'us-cdbr-iron-east-02.cleardb.net',
-    user: 'bee1d7c09dd215',
-    password: '650f4fac',
-    database: 'heroku_6c524e3bb34e4a1',
-    port:3306,
+// var connection = mysql.createConnection({
+//     //properties...
+//     host: 'us-cdbr-iron-east-02.cleardb.net',
+//     user: 'bee1d7c09dd215',
+//     password: '650f4fac',
+//     database: 'heroku_6c524e3bb34e4a1',
+//     port:3306,
 
+// });
+
+var connection = mysql.createConnection({
+  //properties...
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'orientation',
 });
 
 //connection mysql DB
@@ -130,7 +139,8 @@ router.post('/registration', function (req, res){
   console.log(password);
   console.log(hashedPassword);
 
-
+  let now = new Date();
+  now = dateformat(now, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
   let newPatient = {
     firstName:inputFirstName,
     lastName:inputLastName,
@@ -146,7 +156,7 @@ router.post('/registration', function (req, res){
     ville:inputCity,
     province:inputProvince,
     codePostal:inputZip,
-    inscriptionDate:Date.now(),
+    inscriptionDate:now,
     confirm:0
   };
   connection.query('INSERT INTO patients SET ?', newPatient, (err, res) => {
@@ -154,7 +164,7 @@ router.post('/registration', function (req, res){
     console.log('Last insert ID:', res.insertId);
   });
 
-  res.redirect('/patient/login')
+  res.redirect('/')
   }
   });
 
